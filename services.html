@@ -118,6 +118,11 @@ nav a:hover {
   box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
 .card h3 {
   margin-top: 0;
   color: var(--primary-blue);
@@ -186,18 +191,24 @@ nav a:hover {
 }
 
 .pop-card {
-  background: white;
   flex: 1 1 250px;
-  padding: 30px;
-  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff, #e6f0ff);
+  padding: 30px 20px;
+  border-radius: 15px;
   text-align: center;
+  border-top: 4px solid var(--secondary-blue);
   transition: transform 0.4s, box-shadow 0.4s;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
 .pop-card:hover {
-  transform: scale(1.05) rotate(-1deg);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+.pop-icon {
+  font-size: 50px;
+  margin-bottom: 15px;
 }
 
 .pop-card h3 {
@@ -274,7 +285,7 @@ footer a {
   </p>
 </div>
 
-<!-- MAIN SERVICES CARDS -->
+<!-- MAIN SERVICE CARDS -->
 <div class="container" id="services">
   <div class="cards">
     <div class="card">
@@ -319,22 +330,22 @@ footer a {
 
     <div class="popular-cards">
       <div class="pop-card">
-        <img src="https://img.icons8.com/ios/100/205493/web-design.png" alt="Web Design" style="width:60px; margin-bottom:15px;">
+        <div class="pop-icon">🌐</div>
         <h3>Web Design</h3>
         <p>Creative, responsive, and visually appealing website designs.</p>
       </div>
       <div class="pop-card">
-        <img src="https://img.icons8.com/ios/100/205493/frontend-development.png" alt="Frontend Development" style="width:60px; margin-bottom:15px;">
+        <div class="pop-icon">💻</div>
         <h3>Frontend Development</h3>
         <p>Clean HTML, CSS, JS code for modern, scalable UIs.</p>
       </div>
       <div class="pop-card">
-        <img src="https://img.icons8.com/ios/100/205493/accessibility.png" alt="Accessibility" style="width:60px; margin-bottom:15px;">
+        <div class="pop-icon">♿</div>
         <h3>Accessibility Optimization</h3>
         <p>Optimized interfaces for everyone, following best practices.</p>
       </div>
       <div class="pop-card">
-        <img src="https://img.icons8.com/ios/100/205493/seo.png" alt="Performance" style="width:60px; margin-bottom:15px;">
+        <div class="pop-icon">⚡</div>
         <h3>Performance Optimization</h3>
         <p>Fast-loading, SEO-friendly websites with modern standards.</p>
       </div>
