@@ -6,7 +6,7 @@
 <title>Services | RFPMart</title>
 
 <style>
-/* COLORS & TYPOGRAPHY (USWDS style reference) */
+/* COLORS & TYPOGRAPHY */
 :root {
   --primary-blue: #205493;
   --secondary-blue: #0d6efd;
@@ -22,6 +22,7 @@ body {
   background: var(--bg-light);
 }
 
+/* HEADER */
 header {
   background: var(--primary-blue);
   color: white;
@@ -43,16 +44,19 @@ nav a {
   font-weight: 500;
 }
 
+/* HERO */
 .hero {
-  background: var(--secondary-blue);
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url('https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=1950&q=80') no-repeat center center;
+  background-size: cover;
   color: white;
   text-align: center;
-  padding: 80px 20px;
+  padding: 120px 20px 80px;
 }
 
 .hero h1 {
-  margin: 0 0 10px;
-  font-size: 42px;
+  margin: 0 0 15px;
+  font-size: 48px;
 }
 
 .hero p {
@@ -60,6 +64,15 @@ nav a {
   font-size: 20px;
 }
 
+/* INTRO */
+.container p.intro {
+  text-align: center;
+  font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+/* CARDS */
 .container {
   max-width: 1200px;
   margin: auto;
@@ -91,6 +104,40 @@ nav a {
   color: var(--primary-blue);
 }
 
+.card p {
+  margin-bottom: 0;
+}
+
+/* CTA SECTION */
+.cta {
+  background: var(--primary-blue);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 8px;
+  margin: 60px 20px;
+}
+
+.cta h2 {
+  margin-bottom: 20px;
+}
+
+.cta button {
+  background: var(--secondary-blue);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cta button:hover {
+  background: #0b5ed7;
+}
+
+/* FOOTER */
 footer {
   background: var(--primary-blue);
   color: white;
@@ -99,12 +146,27 @@ footer {
   font-size: 14px;
 }
 
+footer a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px){
   .cards {
     flex-direction: column;
   }
   nav {
     display: none;
+  }
+  .cta {
+    margin: 40px 10px;
+    padding: 40px 20px;
+  }
+  .hero {
+    padding: 80px 20px 60px;
   }
 }
 </style>
@@ -126,30 +188,63 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <h1>Our Services</h1>
-  <p>Professional UI & frontend development solutions</p>
+  <p>We deliver professional, accessible, and responsive web solutions that match modern standards.</p>
 </section>
+
+<!-- INTRO -->
+<div class="container">
+  <p class="intro">
+    Our team specializes in creating websites and digital experiences that are both user-friendly and visually appealing. 
+    We combine accessibility, performance, and modern design to deliver results that delight users and meet business goals.
+  </p>
+</div>
 
 <!-- SERVICES CARDS -->
 <div class="container">
   <div class="cards">
     <div class="card">
       <h3>Web Design</h3>
-      <p>Modern responsive website designs for businesses and startups.</p>
+      <p>Beautiful responsive website designs tailored for your business.</p>
     </div>
     <div class="card">
       <h3>Frontend Development</h3>
-      <p>Clean HTML, CSS, JavaScript and Bootstrap UI development.</p>
+      <p>Clean HTML, CSS, JavaScript, and Bootstrap for modern UIs.</p>
     </div>
     <div class="card">
       <h3>UI & Accessibility</h3>
-      <p>Improving accessibility, typography, and overall user experience.</p>
+      <p>Optimized interfaces following accessibility standards and best practices.</p>
+    </div>
+    <div class="card">
+      <h3>Performance Optimization</h3>
+      <p>Fast-loading websites with SEO and performance enhancements.</p>
+    </div>
+    <div class="card">
+      <h3>Maintenance & Support</h3>
+      <p>Ongoing website support and updates to keep your site running smoothly.</p>
+    </div>
+    <div class="card">
+      <h3>Consulting</h3>
+      <p>Expert guidance for design strategy, development, and user experience improvements.</p>
     </div>
   </div>
 </div>
 
+<!-- CTA -->
+<section class="cta">
+  <h2>Ready to start your project?</h2>
+  <p>Contact us today and let’s build something amazing together.</p>
+  <button>Get in Touch</button>
+</section>
+
 <!-- FOOTER -->
 <footer>
-  © 2026 RFPMart Solutions | Built with clean frontend practices
+  <p>© 2026 RFPMart Solutions</p>
+  <p>
+    <a href="#">Home</a> | 
+    <a href="#">Services</a> | 
+    <a href="#">About</a> | 
+    <a href="#">Contact</a>
+  </p>
 </footer>
 
 </body>
