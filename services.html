@@ -1,403 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services | RFPMart</title>
+  <meta charset="UTF-8" />
+  <title>Services | USWDS Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<style>
-/* COLORS & TYPOGRAPHY */
-:root {
-  --primary-blue: #205493;
-  --secondary-blue: #0d6efd;
-  --text-color: #212121;
-  --bg-light: #f8f8f8;
-  --card-bg: #ffffff;
-}
+  <!-- USWDS CSS -->
+  <link rel="stylesheet" href="assets/css/uswds.min.css" />
 
-body {
-  margin: 0;
-  font-family: "Source Sans Pro", Arial, sans-serif;
-  color: var(--text-color);
-  background: var(--bg-light);
-  scroll-behavior: smooth;
-}
-
-/* HEADER */
-header {
-  background: var(--primary-blue);
-  color: white;
-  padding: 20px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-header .logo {
-  font-weight: bold;
-  font-size: 24px;
-}
-
-nav a {
-  color: white;
-  margin-left: 20px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* HERO */
-.hero {
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-              url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1950&q=80') no-repeat center center;
-  background-size: cover;
-  color: white;
-  text-align: center;
-  padding: 120px 20px 80px;
-  position: relative;
-}
-
-.hero h1, .hero p {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 1s forwards;
-}
-
-.hero p { animation-delay: 0.3s; }
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* INTRO */
-.container p.intro {
-  text-align: center;
-  font-size: 18px;
-  max-width: 800px;
-  margin: 0 auto 60px;
-}
-
-/* MAIN SERVICE CARDS */
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 60px 20px;
-}
-
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: space-between;
-}
-
-.card{
-    background: var(--card-bg);
-    flex: 1 1 300px;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-}
-
-.card h3 {
-  margin-top: 0;
-  color: #205493;
-}
-
-.card p {
-  margin-top: 10px;
-  color: #555;
-  line-height: 1.5;
-}
-
-.card::after {
-  content: "★";
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 18px;
-  color: #205493;
-  opacity: 0;
-  transition: opacity 0.4s, transform 0.4s;
-}
-
-.card:hover::after {
-  opacity: 1;
-  transform: scale(1.3);
-}
-
-.card.visible {
-  opacity: 1;
-  transform: translateY(0);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-
-
-/* CTA SECTION */
-.cta {
-  background: var(--primary-blue);
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
-  border-radius: 8px;
-  margin: 60px 20px;
-  transition: background 0.3s;
-}
-
-.cta h2 {
-  margin-bottom: 20px;
-}
-
-.cta button {
-  background: var(--secondary-blue);
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  font-size: 18px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-}
-
-.cta button:hover {
-  background: #0b5ed7;
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-}
-
-/* POPULAR SERVICES */
-.popular-services {
-  padding:80px 20px;
-  background: linear-gradient(to right, #f0f4f8, #ffffff);
-}
-
-.popular-services h2 {
-  text-align:center;
-  color: var(--primary-blue);
-  margin-bottom:10px;
-}
-
-.popular-services p {
-  text-align:center;
-  color:#555;
-  max-width:700px;
-  margin:0 auto 50px;
-}
-
-.popular-cards {
-  display:flex;
-  flex-wrap:wrap;
-  gap:30px;
-  justify-content:center;
-}
-
-.pop-card {
-  flex: 1 1 250px;
-  background: linear-gradient(145deg, #ffffff, #e6f0ff);
-  padding: 30px 20px;
-  border-radius: 15px;
-  text-align: center;
-  border-top: 4px solid var(--secondary-blue);
-  transition: transform 0.4s, box-shadow 0.4s;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-}
-
-.pop-card:hover {
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
-}
-
-.pop-icon {
-  font-size: 50px;
-  margin-bottom: 15px;
-}
-
-.pop-card h3 {
-  color: var(--primary-blue);
-  margin-top: 10px;
-}
-
-.pop-card p {
-  color: #555;
-  margin-top: 10px;
-  font-size: 15px;
-}
-
-/* FOOTER */
-footer {
-  background: var(--primary-blue);
-  color: white;
-  padding: 40px 20px;
-  text-align: center;
-  font-size: 14px;
-}
-
-footer a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px){
-  .cards, .popular-cards {
-    flex-direction: column;
-    align-items: center;
-  }
- .card, .pop-cards{
-   flex:none;
- } 
-  
-  nav {
-    display: none;
-  }
-  .cta {
-    margin: 40px 10px;
-    padding: 40px 20px;
-  }
-  .hero {
-    padding: 80px 20px 60px;
-  }
-}
-</style>
 </head>
-
 <body>
 
+<a class="usa-skipnav" href="#main-content">Skip to main content</a>
+
 <!-- HEADER -->
-<header>
-  <div class="logo">RFPMart</div>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#services">Services</a>
-    <a href="#popular">Popular</a>
-    <a href="#">Contact</a>
-  </nav>
+<header class="usa-header usa-header--basic">
+  <div class="usa-nav-container">
+    <div class="usa-navbar">
+      <div class="usa-logo">
+        <em class="usa-logo__text">
+          <a href="index.html">USWDS Demo</a>
+        </em>
+      </div>
+      <button class="usa-menu-btn">Menu</button>
+    </div>
+
+    <nav class="usa-nav">
+      <button class="usa-nav__close">
+        <img src="assets/img/usa-icons/close.svg" alt="Close" />
+      </button>
+
+      <ul class="usa-nav__primary usa-accordion">
+        <li class="usa-nav__primary-item">
+          <a href="index.html" class="usa-nav__link"><span>Home</span></a>
+        </li>
+        <li class="usa-nav__primary-item">
+          <a href="services.html" class="usa-nav__link usa-current"><span>Services</span></a>
+        </li>
+        <li class="usa-nav__primary-item">
+          <a href="#" class="usa-nav__link"><span>Contact</span></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Our Services</h1>
-  <p>We deliver professional, accessible, and responsive web solutions that match modern standards.</p>
-</section>
+<!-- MAIN CONTENT -->
+<main id="main-content">
 
-<!-- INTRO -->
-<div class="container">
-  <p class="intro">
-    Our team specializes in creating websites and digital experiences that are both user-friendly and visually appealing. 
-    We combine accessibility, performance, and modern design to deliver results that delight users and meet business goals.
-  </p>
-</div>
-
-<!-- MAIN SERVICE CARDS -->
-<div class="container" id="services">
-  <div class="cards">
-    <div class="card">
-      <h3>Web Design</h3>
-      <p>Beautiful responsive website designs tailored for your business.</p>
-    </div>
-    <div class="card">
-      <h3>Frontend Development</h3>
-      <p>Clean HTML, CSS, JavaScript, and Bootstrap for modern UIs.</p>
-    </div>
-    <div class="card">
-      <h3>UI & Accessibility</h3>
-      <p>Optimized interfaces following accessibility standards and best practices.</p>
-    </div>
-    <div class="card">
-      <h3>Performance Optimization</h3>
-      <p>Fast-loading websites with SEO and performance enhancements.</p>
-    </div>
-    <div class="card">
-      <h3>Maintenance & Support</h3>
-      <p>Ongoing website support and updates to keep your site running smoothly.</p>
-    </div>
-    <div class="card">
-      <h3>Consulting</h3>
-      <p>Expert guidance for design strategy, development, and user experience improvements.</p>
-    </div>
-  </div>
-</div>
-
-<!-- CTA -->
-<section class="cta">
-  <h2>Ready to start your project?</h2>
-  <p>Contact us today and let’s build something amazing together.</p>
-  <button>Get in Touch</button>
-</section>
-
-<!-- POPULAR SERVICES -->
-<section class="popular-services" id="popular">
-  <div class="container">
-    <h2>Our Most Popular Services</h2>
-    <p>These are the services our clients love most — crafted for performance, design, and accessibility.</p>
-
-    <div class="popular-cards">
-      <div class="pop-card">
-        <div class="pop-icon">🌐</div>
-        <h3>Web Design</h3>
-        <p>Creative, responsive, and visually appealing website designs.</p>
-      </div>
-      <div class="pop-card">
-        <div class="pop-icon">💻</div>
-        <h3>Frontend Development</h3>
-        <p>Clean HTML, CSS, JS code for modern, scalable UIs.</p>
-      </div>
-      <div class="pop-card">
-        <div class="pop-icon">♿</div>
-        <h3>Accessibility Optimization</h3>
-        <p>Optimized interfaces for everyone, following best practices.</p>
-      </div>
-      <div class="pop-card">
-        <div class="pop-icon">⚡</div>
-        <h3>Performance Optimization</h3>
-        <p>Fast-loading, SEO-friendly websites with modern standards.</p>
+  <!-- HERO -->
+  <section class="usa-hero" aria-label="Introduction">
+    <div class="grid-container">
+      <div class="usa-hero__callout">
+        <h1 class="usa-hero__heading">
+          <span class="usa-hero__heading--alt">Our Services</span>
+          Accessible, scalable, and modern solutions
+        </h1>
+        <p>
+          We build high-quality front-end experiences following USWDS and accessibility best practices.
+        </p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="usa-section">
+    <div class="grid-container">
+      <div class="grid-row grid-gap">
+
+        <div class="tablet:grid-col-4">
+          <h2 class="usa-heading-md">UI Development</h2>
+          <p>
+            Clean, responsive interfaces built with HTML, CSS, Bootstrap, and USWDS components.
+          </p>
+        </div>
+
+        <div class="tablet:grid-col-4">
+          <h2 class="usa-heading-md">Web Accessibility</h2>
+          <p>
+            WCAG-compliant designs with semantic HTML, keyboard navigation, and screen-reader support.
+          </p>
+        </div>
+
+        <div class="tablet:grid-col-4">
+          <h2 class="usa-heading-md">Performance Optimization</h2>
+          <p>
+            Optimized layouts, reusable components, and lightweight assets for fast-loading pages.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="usa-section usa-section--dark">
+    <div class="grid-container text-center">
+      <h2 class="usa-heading-lg">Ready to work with us?</h2>
+      <a href="#" class="usa-button usa-button--inverse">Contact Us</a>
+    </div>
+  </section>
+
+</main>
 
 <!-- FOOTER -->
-<footer>
-  <p>© 2026 RFPMart Solutions</p>
-  <p>
-    <a href="#">Home</a> | 
-    <a href="#services">Services</a> | 
-    <a href="#popular">Popular Services</a> | 
-    <a href="#">Contact</a>
-  </p>
+<footer class="usa-footer">
+  <div class="grid-container usa-footer__return-to-top">
+    <a href="#">Return to top</a>
+  </div>
 </footer>
 
-<!-- JS EFFECTS -->
-<script>
-
-const cards = document.querySelectorAll('.card');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.2 });
-cards.forEach(card => observer.observe(card));
-</script>
+<!-- USWDS JS -->
+<script src="assets/js/uswds.min.js"></script>
 
 </body>
 </html>
