@@ -87,7 +87,7 @@ nav a:hover {
   margin: 0 auto 60px;
 }
 
-/* CARDS */
+/* MAIN SERVICE CARDS */
 .container {
   max-width: 1200px;
   margin: auto;
@@ -112,11 +112,6 @@ nav a:hover {
   transform: translateY(30px);
 }
 
-card:hover{
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-}
-  
 .card.visible {
   opacity: 1;
   transform: translateY(0);
@@ -164,6 +159,58 @@ card:hover{
   box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
+/* POPULAR SERVICES */
+.popular-services {
+  padding:80px 20px;
+  background: linear-gradient(to right, #f0f4f8, #ffffff);
+}
+
+.popular-services h2 {
+  text-align:center;
+  color: var(--primary-blue);
+  margin-bottom:10px;
+}
+
+.popular-services p {
+  text-align:center;
+  color:#555;
+  max-width:700px;
+  margin:0 auto 50px;
+}
+
+.popular-cards {
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  justify-content:center;
+}
+
+.pop-card {
+  background: white;
+  flex: 1 1 250px;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.4s, box-shadow 0.4s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.pop-card:hover {
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.pop-card h3 {
+  color: var(--primary-blue);
+  margin-top: 10px;
+}
+
+.pop-card p {
+  color: #555;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
 /* FOOTER */
 footer {
   background: var(--primary-blue);
@@ -182,8 +229,9 @@ footer a {
 
 /* RESPONSIVE */
 @media (max-width: 768px){
-  .cards {
+  .cards, .popular-cards {
     flex-direction: column;
+    align-items: center;
   }
   nav {
     display: none;
@@ -207,7 +255,7 @@ footer a {
   <nav>
     <a href="#">Home</a>
     <a href="#services">Services</a>
-    <a href="#">About</a>
+    <a href="#popular">Popular</a>
     <a href="#">Contact</a>
   </nav>
 </header>
@@ -226,7 +274,7 @@ footer a {
   </p>
 </div>
 
-<!-- SERVICES CARDS -->
+<!-- MAIN SERVICES CARDS -->
 <div class="container" id="services">
   <div class="cards">
     <div class="card">
@@ -256,11 +304,42 @@ footer a {
   </div>
 </div>
 
-<!-- CTA Button -->
+<!-- CTA -->
 <section class="cta">
   <h2>Ready to start your project?</h2>
   <p>Contact us today and let’s build something amazing together.</p>
   <button>Get in Touch</button>
+</section>
+
+<!-- POPULAR SERVICES -->
+<section class="popular-services" id="popular">
+  <div class="container">
+    <h2>Our Most Popular Services</h2>
+    <p>These are the services our clients love most — crafted for performance, design, and accessibility.</p>
+
+    <div class="popular-cards">
+      <div class="pop-card">
+        <img src="https://img.icons8.com/ios/100/205493/web-design.png" alt="Web Design" style="width:60px; margin-bottom:15px;">
+        <h3>Web Design</h3>
+        <p>Creative, responsive, and visually appealing website designs.</p>
+      </div>
+      <div class="pop-card">
+        <img src="https://img.icons8.com/ios/100/205493/frontend-development.png" alt="Frontend Development" style="width:60px; margin-bottom:15px;">
+        <h3>Frontend Development</h3>
+        <p>Clean HTML, CSS, JS code for modern, scalable UIs.</p>
+      </div>
+      <div class="pop-card">
+        <img src="https://img.icons8.com/ios/100/205493/accessibility.png" alt="Accessibility" style="width:60px; margin-bottom:15px;">
+        <h3>Accessibility Optimization</h3>
+        <p>Optimized interfaces for everyone, following best practices.</p>
+      </div>
+      <div class="pop-card">
+        <img src="https://img.icons8.com/ios/100/205493/seo.png" alt="Performance" style="width:60px; margin-bottom:15px;">
+        <h3>Performance Optimization</h3>
+        <p>Fast-loading, SEO-friendly websites with modern standards.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -269,7 +348,7 @@ footer a {
   <p>
     <a href="#">Home</a> | 
     <a href="#services">Services</a> | 
-    <a href="#">About</a> | 
+    <a href="#popular">Popular Services</a> | 
     <a href="#">Contact</a>
   </p>
 </footer>
@@ -278,7 +357,6 @@ footer a {
 <script>
 
 const cards = document.querySelectorAll('.card');
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
@@ -286,7 +364,6 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.2 });
-
 cards.forEach(card => observer.observe(card));
 </script>
 
