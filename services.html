@@ -1,81 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services | RFPMart</title>
 
-<link rel="stylesheet" href="https://unpkg.com/uswds@3.7.1/dist/css/uswds.min.css">
-<script src="https://unpkg.com/uswds@3.7.1/dist/js/uswds.min.js"></script>
+<style>
+/* COLORS & TYPOGRAPHY (USWDS style reference) */
+:root {
+  --primary-blue: #205493;
+  --secondary-blue: #0d6efd;
+  --text-color: #212121;
+  --bg-light: #f8f8f8;
+  --card-bg: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  color: var(--text-color);
+  background: var(--bg-light);
+}
+
+header {
+  background: var(--primary-blue);
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .logo {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.hero {
+  background: var(--secondary-blue);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  margin: 0 0 10px;
+  font-size: 42px;
+}
+
+.hero p {
+  margin: 0;
+  font-size: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 20px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.card {
+  background: var(--card-bg);
+  flex: 1 1 300px;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--primary-blue);
+}
+
+footer {
+  background: var(--primary-blue);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+@media (max-width: 768px){
+  .cards {
+    flex-direction: column;
+  }
+  nav {
+    display: none;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <!-- HEADER -->
-<header class="usa-header usa-header--basic">
-  <div class="usa-nav-container">
-    <div class="usa-navbar">
-      <div class="usa-logo">
-        <em class="usa-logo__text">RFPMart</em>
-      </div>
-    </div>
-  </div>
+<header>
+  <div class="logo">RFPMart</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Services</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
 </header>
 
 <!-- HERO -->
-<section class="usa-hero bg-primary text-white">
-  <div class="grid-container text-center padding-y-8">
-    <h1 class="font-heading-xl">Our Services</h1>
-    <p class="font-body-lg">Professional UI & frontend development solutions</p>
-  </div>
+<section class="hero">
+  <h1>Our Services</h1>
+  <p>Professional UI & frontend development solutions</p>
 </section>
 
-<!-- SERVICES -->
-<section class="usa-section">
-  <div class="grid-container">
-
-    <div class="grid-row grid-gap">
-
-      <div class="tablet:grid-col-4">
-        <div class="usa-card">
-          <div class="usa-card__body">
-            <h3>Web Design</h3>
-            <p>Modern and responsive website designs for businesses.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="tablet:grid-col-4">
-        <div class="usa-card">
-          <div class="usa-card__body">
-            <h3>Frontend Development</h3>
-            <p>HTML, CSS, JavaScript and Bootstrap development.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="tablet:grid-col-4">
-        <div class="usa-card">
-          <div class="usa-card__body">
-            <h3>Accessibility Optimization</h3>
-            <p>Improving accessibility and performance using USWDS standards.</p>
-          </div>
-        </div>
-      </div>
-
+<!-- SERVICES CARDS -->
+<div class="container">
+  <div class="cards">
+    <div class="card">
+      <h3>Web Design</h3>
+      <p>Modern responsive website designs for businesses and startups.</p>
     </div>
-
+    <div class="card">
+      <h3>Frontend Development</h3>
+      <p>Clean HTML, CSS, JavaScript and Bootstrap UI development.</p>
+    </div>
+    <div class="card">
+      <h3>UI & Accessibility</h3>
+      <p>Improving accessibility, typography, and overall user experience.</p>
+    </div>
   </div>
-</section>
+</div>
 
 <!-- FOOTER -->
-<footer class="usa-footer">
-  <div class="grid-container">
-    <div class="usa-footer__primary-section">
-      <p>© 2026 RFPMart Solutions</p>
-    </div>
-  </div>
+<footer>
+  © 2026 RFPMart Solutions | Built with clean frontend practices
 </footer>
 
 </body>
