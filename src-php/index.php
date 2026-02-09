@@ -8,6 +8,7 @@
     <meta name="description" content="Explore city government departments, leadership, services, and public resources in one place." />
 
     <?php require_once '1_head.php'; ?>
+
 </head>
 
 <body>
