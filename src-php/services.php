@@ -37,9 +37,6 @@ transition:all .3s ease-in-out;
 }
 
 @media(min-width:48em){
-/* .service-card{
-flex:0 0 33.33%;
-} */
 .image-col,.content-col {
     width: 50%;
 }
@@ -335,3 +332,4 @@ flex:0 0 50%;
 </body>
 
 </html>
+
